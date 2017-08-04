@@ -207,6 +207,7 @@
         clearInterval(GAME_TIMER);
         clearGrid("#tetrisGrid");
         clearGrid("#previewGrid");
+        clearScore();
         $('#runner').runner('reset');
         NB_LINES_SEQUENCE = 0;
         GAME_IS_PAUSED = false;
@@ -304,9 +305,18 @@
         }
     }
     // ----------------------------------------------------------------------------
-    /** get the actual number of completed lines.*/
+    /** Get the actual number of completed lines.*/
     const numberOfCompletedLines = function() {
         return parseInt($("#simple").text()) + parseInt($("#double").text()) * 2 + parseInt($("#triple").text()) * 3 + parseInt($("#tetris").text() * 4);
+    }
+    // ----------------------------------------------------------------------------
+    /** Clear score.*/
+    const clearScore = function() {
+        $("#simple").text(0);
+        $("#double").text(0);
+        $("#triple").text(0);
+        $("#tetris").text(0);
+        $("#score").text(0);
     }
     // ----------------------------------------------------------------------------
     /** Update score according to the number of completed lines.*/
